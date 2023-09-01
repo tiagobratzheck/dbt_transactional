@@ -7,8 +7,8 @@ select
   c.city,
   s.state,
   co.country
-FROM {{ source('transactional', 'city') }} c
-  left join {{ source('transactional', 'state') }} s
+FROM city c
+  left join state s
     on s.state_id = c.state_id
-  left join {{ source('transactional', 'country') }} co
+  left join country co
     on co.country_id = s.country_id

@@ -4,7 +4,7 @@ with cleaned_d_time as(
 	select
 		time_id,
 		action_timestamp::timestamp
-	from {{ source('transactional', 'd_time')}} 
+	from 'd_time' 
 )
 
 select

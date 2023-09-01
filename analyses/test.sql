@@ -1,0 +1,1 @@
+select * from dbt-demo-397619.transactional.Accounts
