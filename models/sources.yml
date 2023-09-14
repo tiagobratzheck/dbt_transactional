@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: postgres
+    database: dbt-demo-397619
+    schema: transactional
+    tables:
+      - name: d_time
+      - name: Accounts
+      - name: Customers

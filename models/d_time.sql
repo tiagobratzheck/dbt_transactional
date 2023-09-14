@@ -1,3 +1,5 @@
+{{config(materialized='table', tags=['dim'])}}
+
 with
     cleaned_d_time as (
         select
@@ -6,7 +8,7 @@ with
             {% elif target.type == "bigquery" %} timestamp(action_timestamp)
             {% else %} action_timestamp
             {% endif %} as action_timestamp_
-        from dbt-demo-397619.transactional.d_time
+        from {{source('postgres', 'd_time')}}
     )
 
 select
@@ -17,3 +19,4 @@ select
     {% endfor %} 
 
 from cleaned_d_time
+{{limit_lines_dev()}}
